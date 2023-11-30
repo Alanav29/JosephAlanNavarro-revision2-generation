@@ -34,12 +34,13 @@ const enviarFormulario = () => {
 };
 
 // Se cambian de var a let
-let botonBorrar = document.createElement("button");
-botonBorrar.textContent = "Eliminar invitado";
-botonBorrar.id = "boton-borrar";
-let corteLinea = document.createElement("br");
-document.body.appendChild(corteLinea);
-document.body.appendChild(botonBorrar);
+// Se borro esta sección para evitar duplicar boton de borrar invitado
+// let botonBorrar = document.createElement("button");
+// botonBorrar.textContent = "Eliminar invitado";
+// botonBorrar.id = "boton-borrar";
+// let corteLinea = document.createElement("br");
+// document.body.appendChild(corteLinea);
+// document.body.appendChild(botonBorrar);
 
 function agregarInvitado(nombre, edad, nacionalidad) {
 	// Se elimina este bloque ya que nacionalidad ya tiene el value deseado
@@ -86,6 +87,7 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 	elementoLista.appendChild(botonBorrar);
 
 	botonBorrar.onclick = function () {
+		//<button onclick="borrar()"></button>
 		// this.parentNode.style.display = 'none';
 		botonBorrar.parentNode.remove();
 	};
@@ -104,7 +106,7 @@ function crearApartado(apartado, valor, elementoListaRef) {
 	elementoListaRef.appendChild(espacio);
 }
 
-formularioRef.addEventListener("submit", (e) => {
-	e.preventDefault();
+formularioRef.addEventListener("submit", (event) => {
+	event.preventDefault();
 	enviarFormulario();
 });
